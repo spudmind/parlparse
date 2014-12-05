@@ -14,7 +14,8 @@ if not os.path.exists(toppath):
 if not os.path.exists(toppath):
         toppath = os.path.abspath(os.path.expanduser('~/parldata/'))
 if not os.path.exists(toppath):
-        toppath = 'C:\\parldata'
+        #toppath = 'C:\\parldata'
+        toppath = '~/parldata/'
 
 # output directories used for the scraper
 pwcmdirs = os.path.join(toppath, "cmpages")
@@ -273,29 +274,29 @@ def StripAnchorTags(text):
 
 
 def WriteCleanText(fout, text, striphref=True):
-        text = re.sub('<!--.*?-->', '', text)
-    	abf = re.split('(<[^>]*>)', text)
-        for ab in abf:
-		# delete comments and links
-		if re.match('<!-[^>]*?->', ab):
-			pass
+    text = re.sub('<!--.*?-->', '', text)
+    abf = re.split('(<[^>]*>)', text)
+    for ab in abf:
+        # delete comments and links
+        if re.match('<!-[^>]*?->', ab):
+            pass
 
-                # XXX Differs from pullgluepages version
-		elif striphref and re.match('<a[^>]+>(?i)', ab):
-			anamem = re.match('<a name\s*?=(?i)', ab)
-                        if anamem:
-                                fout.write(re.sub('\s', ' ', ab))
+        # XXX Differs from pullgluepages version
+        elif striphref and re.match('<a[^>]+>(?i)', ab):
+            anamem = re.match('<a name\s*?=(?i)', ab)
+            if anamem:
+                fout.write(re.sub('\s', ' ', ab))
 
-		elif striphref and re.match('</?a>(?i)', ab):
-			pass
+        elif striphref and re.match('</?a>(?i)', ab):
+            pass
 
-		# spaces only inside tags
-		elif re.match('<[^>]*>', ab):
-			fout.write(re.sub('\s', ' ', ab))
+        # spaces only inside tags
+        elif re.match('<[^>]*>', ab):
+            fout.write(re.sub('\s', ' ', ab))
 
-		# take out spurious > symbols and dos linefeeds
-		else:
-			fout.write(re.sub('>|\r', '', ab))
+        # take out spurious > symbols and dos linefeeds
+        else:
+            fout.write(re.sub('>|\r', '', ab))
 
 
 # Legacy patch system, use patchfilter.py and patchtool now

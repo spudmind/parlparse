@@ -13,22 +13,22 @@ import shutil
 import xml.sax
 xmlvalidate = xml.sax.make_parser()
 
-from filterwranscolnum import FilterWransColnum
-from filterwransspeakers import FilterWransSpeakers
-from filterwranssections import FilterWransSections
+#from filterwranscolnum import FilterWransColnum
+#from filterwransspeakers import FilterWransSpeakers
+#from filterwranssections import FilterWransSections
 
-from filterwmscolnum import FilterWMSColnum
-from filterwmsspeakers import FilterWMSSpeakers
-from filterwmssections import FilterWMSSections
+#from filterwmscolnum import FilterWMSColnum
+#from filterwmsspeakers import FilterWMSSpeakers
+#from filterwmssections import FilterWMSSections
 
-from filterdebatecoltime import FilterDebateColTime
-from filterdebatespeakers import FilterDebateSpeakers
-from filterdebatesections import FilterDebateSections
+#from filterdebatecoltime import FilterDebateColTime
+#from filterdebatespeakers import FilterDebateSpeakers
+#from filterdebatesections import FilterDebateSections
 
-from lordsfiltercoltime import SplitLordsText
-from lordsfiltercoltime import FilterLordsColtime
-from lordsfilterspeakers import LordsFilterSpeakers
-from lordsfiltersections import LordsFilterSections
+#from lordsfiltercoltime import SplitLordsText
+#from lordsfiltercoltime import FilterLordsColtime
+#from lordsfilterspeakers import LordsFilterSpeakers
+#from lordsfiltersections import LordsFilterSections
 
 from ni.parse import ParseDay as ParseNIDay
 
